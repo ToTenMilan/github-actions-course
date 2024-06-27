@@ -14,20 +14,7 @@ jobs:
     steps:
       - name: Failed step
         run: |
-          echo "I"
-          echo "will"
-          echo "fail"
+          echo "I Will fail"
+          exit 1
       - name: Say goodbye
         run: echo "Goodbye, World!"
-
-
-
-# jobs:
-#   first-job:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - run: echo "Hello, World!"
-#   second-job:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - run: echo "bye, World!"
