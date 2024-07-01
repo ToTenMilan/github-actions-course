@@ -1,6 +1,6 @@
 name: 01 - Building Blocks
 on: # EVENTS that trigger the workflow
-  push:
+  # push:
   workflow_dispatch:
 
 jobs:
