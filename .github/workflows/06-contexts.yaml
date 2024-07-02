@@ -35,9 +35,9 @@ jobs:
         env:
           MY_OVERWRITTEN_VAR: step variable
         run: |
-          echo "Workflow variable: $MY_WORKFLOW_VAR"
-          echo "Step variable: $MY_OVERWRITTEN_VAR"
+          echo "Workflow variable: $MY_WORKFLOW_VAR" # workflow variable
+          echo "Step variable: $MY_OVERWRITTEN_VAR" # step variable
       - name:  step variable 2
         run: |
-          echo "Workflow variable: $MY_WORKFLOW_VAR"
-          echo "Step variable: $MY_OVERWRITTEN_VAR"
+          echo "Workflow variable: $MY_WORKFLOW_VAR" # workflow variable
+          echo "Step variable: $MY_OVERWRITTEN_VAR" # job variable
