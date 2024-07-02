@@ -1,7 +1,7 @@
 name: Contexts
 on:
   push:
-  workflow_dispaych:
+  workflow_dispatch:
 
 jobs:
   echo-data:
