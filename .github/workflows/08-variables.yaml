@@ -6,9 +6,10 @@ on:
 env:
   WORKFLOW_VAR: workflow env variable
   OVERWRITTEN: I will be overwritten
+  UNDEFINED_VAR_WITH_DEFAULT: ${{ vars.UNDEFINED_VAR || 'default value' }}
 
 jobs:
-  scho:
+  echo:
     runs-on: ubuntu-latest
     env:
       JOB_VAR: job env variable
@@ -28,3 +29,27 @@ jobs:
         env:
           OVERWRITTEN: I have been overwritten at the step level
         run: "echo step env var: Overwritten: $OVERWRITTEN"
+  echo2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print variables
+        run: |
+          echo "Org var: ${{ vars.ORG_VAR }}" # if youre an organisation and have defined ORG_VAR
+          echo "Org overwritten var: ${{ vars.OVERWRITTEN_VAR }}" # if youre an organisation and have defined OVERWRITTEN_VAR
+          echo "Repo var: ${{ vars.REPOSITORY_VAR }}"
+  echo-prod2:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: Print prod variables
+        run: |
+          echo "Org var: ${{ vars.ORG_VAR }}" # if youre an organisation and have defined ORG_VAR
+          echo "Org overwritten var: ${{ vars.OVERWRITTEN_VAR }}" # if youre an organisation and have defined OVERWRITTEN_VAR
+          echo "Repo var: ${{ vars.REPOSITORY_VAR }}"
+          echo "Environment var: ${{ vars.TARGET_VAR }}"
+  echo-undefined:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print variables
+        run: |
+          echo "Org var (undefined): ${{ vars.UNDEFINED_VAR_WITH_DEFAULT }}" # if youre an organisation and have defined ORG_VAR
