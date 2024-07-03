@@ -4,7 +4,7 @@ on:
     inputs:
       pass-unit-test:
         type: boolean
-        value: false
+        default: false
 
 jobs:
   lint-build:
