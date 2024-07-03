@@ -52,4 +52,4 @@ jobs:
     steps:
       - name: Print variables
         run: |
-          echo "Org var (undefined): ${{ vars.UNDEFINED_VAR_WITH_DEFAULT }}" # if youre an organisation and have defined ORG_VAR
+          echo "Org var (undefined): ${{ env.UNDEFINED_VAR_WITH_DEFAULT }}" # if youre an organisation and have defined ORG_VAR
