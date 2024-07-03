@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Running Unit Tests
-        run: "Running  tests..."
+        run: echo "Running  tests..."
       - name: Failing tests
         if: ${{ github.event.inputs.pass-unit-test == 'false' }}
         run: exit 1
